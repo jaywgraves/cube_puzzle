@@ -3,6 +3,7 @@ https://en.wikipedia.org/wiki/Instant_Insanity
 
 arrange so each side has 4 different colors
 
+```
 1
  G
 BWW
@@ -26,5 +27,4 @@ GWR
 RBB
  W
  W
-
-
+```
