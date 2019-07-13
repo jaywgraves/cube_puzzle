@@ -4,7 +4,6 @@ import random
 
 solve_all = True
 shuffle_cube_order = False
-rotate_cube_face_start = False
 
 # normal die
 # values  indexes
@@ -40,16 +39,6 @@ cube.append(('B','G','W','R','B','G'))
 cube.append(('G','R','B','B','W','W'))
 if shuffle_cube_order:
     random.shuffle(cube)
-# this does not work
-if rotate_cube_face_start:
-    new_cube = []
-    for c in cube:
-        c = list(c)
-        for _ in range(random.randint(0,5)):
-            c.append(c.pop(0))
-        new_cube.append(tuple(c))
-    cube = new_cube
-
 
 def get_cube(cube_idx, rot_idx):
     return tuple(cube[cube_idx][ri] for ri in rotations[rot_idx])
