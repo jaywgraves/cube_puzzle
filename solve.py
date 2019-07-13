@@ -7,10 +7,11 @@ shuffle_cube_order = False
 rotate_cube_face_start = False
 
 # normal die
-#  1
-# 235
-#  6
-#  4
+# values  indexes
+#  1       0
+# 235     123
+#  6       4
+#  4       5
 # paths plus reverse and rotations
 # 1265  0,1,4,3
 # 1562 rev
@@ -32,7 +33,7 @@ for faces in face_seed:
 rot_len = len(rotations)
 
 cube = []
-#             1   2   3   5   6   4
+# by value    1   2   3   5   6   4
 cube.append(('G','B','W','W','R','R'))
 cube.append(('B','R','W','R','R','G'))
 cube.append(('B','G','W','R','B','G'))
@@ -54,12 +55,10 @@ def get_cube(cube_idx, rot_idx):
     return tuple(cube[cube_idx][ri] for ri in rotations[rot_idx])
 
 def check(a, b, c, d):
-    correct = 0
     for s1,s2,s3,s4 in zip(a, b, c, d):
         cube_side = (s1, s2, s3, s4)
         if len(set(cube_side)) != 4:
             return False
-        correct += 1 
     return True
 
 cnt = 0
@@ -76,7 +75,7 @@ for ai in range(rot_len):
                 solved = check(a, b, c, d)
                 if solved:
                     solve_cnt += 1
-                    print('solved after',cnt,'test')
+                    print('solved after',cnt,'tests')
                     print(a)
                     print(b)
                     print(c)
